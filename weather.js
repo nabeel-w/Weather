@@ -15,7 +15,7 @@ const successCallback = (position) => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
     .then(response => response.json())
     .then(response => {
-           
+           dataContainer.innerHTML="";
            console.log(response);
            let temp =KtoC(response.main.temp);
            let city = response.name;
@@ -23,8 +23,10 @@ const successCallback = (position) => {
            let windDir= windDirection(response.wind.deg); 
            let humidity = response.main.humidity;
            let description= response.weather[0].main;
+           let img=response.weather[0].icon;
            let postData= document.createElement('div');
-           postData.innerHTML=`<h2>${city}</h2> <p><strong>${description}</strong><br>Temperature-${temp}°C<br> Humidity-${humidity}%<br>Wind Speed-${windSpeed}km/hr ${windDir}</p>`
+           postData.innerHTML=`<h2 class="display-5">${city}</h2> <p class="lead"><img src="https://openweathermap.org/img/wn/${img}.png" alt="weather icon">
+           <strong>${description}</strong><br>Temperature: ${temp}°C<br> Humidity: ${humidity}%<br>Wind Speed: ${windSpeed}km/hr ${windDir}</p>`
            dataContainer.appendChild(postData);
         }) 
   };
