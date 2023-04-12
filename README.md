@@ -1,5 +1,5 @@
 # Weather
-This Website is a web application that displays current weather information for a given location using the OpenWeather API.
+This Website is a web application that displays current weather information for your current location using the OpenWeather API.
 It is built using Bootstrap, a popular front-end framework, to create a responsive and visually appealing user interface.
 ## Technologies Used
 The Weather Website is built using the following technologies:
